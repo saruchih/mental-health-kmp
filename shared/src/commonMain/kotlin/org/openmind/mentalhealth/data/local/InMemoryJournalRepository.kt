@@ -1,4 +1,4 @@
-package org.openmind.mentalhealth.domain.data.local
+package org.openmind.mentalhealth.data.local
 
 import org.openmind.mentalhealth.domain.model.JournalEntry
 import org.openmind.mentalhealth.domain.repository.JournalRepository

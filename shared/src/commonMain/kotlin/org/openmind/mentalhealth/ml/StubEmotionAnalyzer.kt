@@ -1,4 +1,4 @@
-package org.openmind.mentalhealth.domain.ml
+package org.openmind.mentalhealth.ml
 
 import org.openmind.mentalhealth.domain.model.Mood
 

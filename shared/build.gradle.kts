@@ -2,8 +2,15 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidKotlinMultiplatformLibrary)
     alias(libs.plugins.androidLint)
+    alias(libs.plugins.sqldelight)
 }
-
+sqldelight {
+    databases {
+        create("JournalDatabase") {
+            packageName.set("org.openmind.mentalhealth.database")
+        }
+    }
+}
 kotlin {
 
     // Target declarations - add or remove as needed below. These define
@@ -62,6 +69,12 @@ kotlin {
                 implementation(libs.kotlin.stdlib)
                 // Add KMP dependencies here
                 implementation(libs.kotlinx.datetime)
+                implementation(libs.kotlinx.coroutines.core)
+                implementation(kotlin("test"))
+                implementation(libs.kotlinx.coroutines.test)
+                implementation(libs.sqldelight.runtime)
+                implementation(libs.sqldelight.coroutines)
+
 
             }
         }
@@ -78,6 +91,8 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
+                implementation(libs.sqldelight.android.driver)
+
             }
         }
 
@@ -96,6 +111,8 @@ kotlin {
                 // part of KMP’s default source set hierarchy. Note that this source set depends
                 // on common by default and will correctly pull the iOS artifacts of any
                 // KMP dependencies declared in commonMain.
+                implementation(libs.sqldelight.native.driver)
+
             }
         }
     }

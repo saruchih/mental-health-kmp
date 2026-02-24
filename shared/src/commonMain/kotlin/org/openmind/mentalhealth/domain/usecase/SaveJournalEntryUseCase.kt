@@ -1,6 +1,6 @@
 package org.openmind.mentalhealth.domain.usecase
 
-import org.openmind.mentalhealth.domain.ml.EmotionAnalyzer
+import org.openmind.mentalhealth.ml.EmotionAnalyzer
 import org.openmind.mentalhealth.domain.model.JournalEntry
 import org.openmind.mentalhealth.domain.repository.JournalRepository
 import kotlin.time.Clock
